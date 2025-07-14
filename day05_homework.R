@@ -49,7 +49,8 @@ answer_2 <-
  # filter(is.na(tailnum))
 
 answer_3 <- answer_1 |>
-  filter(is.na(tailnum))
+  filter(is.na(tailnum)) |>
+  count("NA") < 1
   
 
 # Q4. The `nycflights13` package includes a dataframe called `airlines` that

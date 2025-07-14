@@ -40,7 +40,7 @@ answer_2 <-
 # Save your answer as a logical vector (either TRUE or FALSE) to answer_3
 #How identify each flight to verify every flights has corresponding plane ? 
 #perhaps: It is not problem that the same-tailnum-(unique)plane arrive for manytimes.
-
+# if the tailnum is not NA, every flights might have corresponding airplane.
 #flights |>
  # count(tailnum)|>
   #filter(n>1)
@@ -48,7 +48,8 @@ answer_2 <-
 #?answer_3 <- flights |>
  # filter(is.na(tailnum))
 
-answer_3 <- answer_1 |>filter(is.na(tailnum))
+answer_3 <- answer_1 |>
+  filter(is.na(tailnum))
   
 
 # Q4. The `nycflights13` package includes a dataframe called `airlines` that

@@ -54,13 +54,14 @@ answer_3 <- flights |>
 answer_4 <- flights |>
   left_join(airlines, join_by(carrier == carrier))
 
-# Q5. Use answer_4 to find the average arrival delay(arr_delay) for each airline(name).
+# Q5. Use answer_4 to find the average arrival delay(arr_delay) for each airline
+#to identify each airline, I am using (name).
 # Exclude missing values from your calculation.
 # Save the result as answer_5
 #
 answer_5 <- answer_4 |>
   group_by(name) |>
-  mean(arr_delay)
+  summarize(mean_delay = mean(arr_delay, na.rm = TRUE))
 
 # HINT: remember that you can use `group_by()` and `summarize()` together to
 # calculate summary statistics for each group in the data.
